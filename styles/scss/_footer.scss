@@ -1,0 +1,41 @@
+.wrapper__footer{
+    background: $bg-gradient;
+    margin-top: 100px;
+}
+.footer{
+    color: $color-white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.scroll-up{
+    background-color: $color-white;
+    position: fixed;
+    cursor: pointer;
+    bottom: 2rem;
+    right: 1.5rem;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: $transition-main;
+    &:hover{
+        background-color: $color-gold;
+    }
+    &__arrow{
+        transform: rotate(-90deg);
+        fill: $color-brown;
+    }
+    &.sticky{
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: $medium-down) {
+    .scroll-up{
+        width: 35px;
+        height: 35px;
+    }
+}

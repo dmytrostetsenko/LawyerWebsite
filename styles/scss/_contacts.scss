@@ -1,0 +1,56 @@
+.section-contacts{
+    margin-top: 150px;
+}
+
+.contacts{
+    padding: 30px 0;
+    &__block{
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item{
+        text-align: center;
+    }
+    &__link{
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        color: $color-brown;
+        transition: $transition-main;
+        & svg{
+            fill: $color-brown;
+            transition: $transition-main;
+        }
+        &--rotate{
+            transform: rotate(-45deg);
+        }
+        &:hover:not(first-child){
+            color: $color-gold;
+        }
+        &:hover svg {
+            fill: $color-gold;
+        }
+    }
+}
+
+@media screen and (max-width: $large-down) {
+    .section-contacts{
+        margin-top: 75px;
+    }
+    .contacts{
+        &__block{
+            flex-direction: column;
+            gap: 40px;
+        }
+        &__link{
+            margin-top: 20px;
+            & svg{
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}

@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    color: $color-brown;
+    font-family: 'Open Sans';
+    // background-color: $color-white;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+li::marker{
+    color: $color-gold-deep;
+    
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    margin: 0;
+}
+
+.container{
+    padding: 0 70px;
+    margin: 0 auto;
+    max-width: $xlarge-down;
+}
+
+.title{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    overflow: hidden;
+    &__heading{
+        transform: scale(0);
+        opacity: 0;
+        transition: all .6s ease;
+        &._active{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    &__line{
+        flex: 0 1 30%;
+    }
+}
+
+.line{
+    height: 2px;
+    background-color: $color-gold;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all .6s ease;
+    &:first-child{
+        transform: translateX(-100%);
+    }
+    &:last-child{
+        transform: translateX(100%);
+    }
+    &._active{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.main-heading{
+    font-size: 3rem;
+    margin: 0;
+    line-height: 1.5;
+    letter-spacing: 3px;
+}
+
+.large-heading{
+    font-size: 2.5rem;
+    letter-spacing: 2.5px;
+    margin: 0;
+}
+
+.small-heading{
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+@media screen and (max-width: $medium-down) {
+    .main-heading{
+        font-size: 2.2rem;
+        letter-spacing: normal;
+    }
+    .large-heading{
+        font-size: 1.8rem;
+        letter-spacing: normal;
+    }
+    .small-heading{
+        font-size: 1.2rem;
+    }
+    .container{
+        padding: 0 15px;
+    }
+}

@@ -1,0 +1,120 @@
+.main-title{
+    flex-grow: 1;
+    padding: 0 80px;
+
+    &__block{
+        height: 100%;
+        font-family: 'Playfair Display';
+        text-align: center;
+        padding: 150px 0 50px;
+        text-align: center;
+    }
+
+    &__heading{
+        text-align: center;
+        text-shadow: 1px 1px 2px $color-brown-light;
+        margin-bottom: 100px;
+        & ._anim-item{
+            transition: all 1s ease;
+            opacity: 0;
+            &:last-child{
+                color: rgb(125, 27, 27);
+            }
+            &._active{
+                opacity: 1;
+            }
+            &._active:nth-child(2){
+                transition-delay: .2s;
+            }
+            &._active:nth-child(3){
+                transition-delay: .4s;
+            }
+            &._active:nth-child(4){
+                transition-delay: .6s;
+            }
+            &._active:last-child{
+                transition-delay: .8s;
+            }
+        }
+    }
+    &__word{
+        opacity: 0;
+        transition: $transition-main;
+        &._anim-item:first-child{
+            opacity: 1;
+            transition-delay: .1s;
+        }
+        &._active:nth-child(2){
+            opacity: 1;
+            transition-duration: .2s;
+        }
+        &._anim-item:nth-child(2){
+            opacity: 1;
+            transition-delay: .2s;
+        }
+        &._anim-item:last-child{
+            opacity: 1;
+            transition-delay: .4s;
+            color: rgb(136, 44, 44);
+        }
+    }
+
+    &__text{
+        font-size: 1.7rem;
+        font-weight: 700;
+        line-height: 2;
+        letter-spacing: 2px;
+    }
+
+    &__button{
+        cursor: pointer;
+        color: $color-white;
+        border: none;
+        display: inline-block;
+        font-family: 'Open Sans';
+        background-color: transparent;
+        border: 1px solid #e4e3e452;
+        max-width: 300px;
+        padding: 20px;
+        letter-spacing: 1.2px;
+        transition: $transition-main;
+        animation: text 2s forwards;
+        animation-delay: 2s;
+        opacity: 0;
+        @keyframes text {
+            100%{
+                opacity: 1;
+            }
+        }
+        &:hover{
+            color: $color-gold;
+            border-color: $color-gold;
+        }
+    }
+}
+
+@media screen and (max-width: $large-down) {
+    .main-title{
+        &__heading{
+            font-size: 2.7rem;
+        }
+        &__text{
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@media screen and (max-width: $medium-down) {
+    .main-title{
+        &__heading{
+            font-size: 2.2rem;
+        }
+        &__text{
+            font-size: 1rem;
+        }
+        &__button{
+            max-width: 200px;
+            padding: 10px;
+        }
+    }
+}

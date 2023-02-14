@@ -1,0 +1,53 @@
+@import './header';
+@import './main-title';
+
+.wrapper__header{
+    background-image: none;
+    box-shadow: none;
+    color: $color-brown;
+    height: 65vh;
+}
+
+.menu__link,
+.social__tel-num,
+.lang__link{
+    color: $color-brown;
+}
+
+.header{
+    &.sticky{
+        background-color: #fff;
+        opacity: 1;
+
+    }
+}
+
+
+.menu__sub-list{
+    background-color: #fff;
+}
+
+.main-title{
+    background: $bg-gradient;
+    color: $color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    &__burger span,
+    &__burger::after,
+    &__burger::before{
+        background-color: $color-brown;
+    }
+}
+
+@media screen and (max-width: $large-down){
+    .header{
+        background-color: #fff;
+    }
+    .menu__body{
+        background-color: #fff;
+    }
+}

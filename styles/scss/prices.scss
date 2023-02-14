@@ -1,0 +1,31 @@
+@import './library';
+@import './main-styles';
+@import './header-white';
+@import './consult';
+@import './contacts';
+@import './footer';
+
+.section-prices{
+    margin-top: 150px;
+}
+
+.prices{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.service{
+    border-bottom: 1px solid $color-gray-border;
+    padding: 0 0 15px 45px;
+    list-style: none;
+    &__price{
+        margin-top: 10px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: $medium-down) {
+    .section-prices{
+        margin-top: 75px;
+    }
+}

@@ -1,0 +1,298 @@
+.wrapper__header{
+    height: 100vh;
+    background-image: url(../assets/images/header/header-bg.jpeg);
+    background-attachment: fixed;
+    box-shadow: inset 100vh 100vw rgba(0, 0, 0, 0.45);
+    background-size: cover;
+    background-position: center;
+    color: $color-white;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    border-bottom: 1px solid #e4e3e452;
+    & a{
+        font-weight: 600;
+        letter-spacing: 0.6px;
+    }
+
+    &.sticky{
+        transition: $transition-main;
+        background-color: #000;
+        position: fixed;
+        width: 100%;
+        border-bottom: none;
+        opacity: .8;
+        z-index: 99;
+        & .menu{
+            height: 75px;
+        }
+        & .navigation__logo{
+            height: 75px;
+        }
+    }
+    &._active{
+        opacity: 1;
+    }
+}
+
+
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &__logo{
+        position: relative;
+        height: 100px;
+        z-index: 99;
+    }
+}
+
+.menu{
+    height: 100px;
+    &__body{
+        display: flex;
+        flex: 0 1 70%;
+        justify-content: space-between;
+    }
+
+    &__burger{
+        display: none;
+    }
+
+    &__list{
+        display: flex;
+        list-style: none;
+        gap: 30px;
+    }
+
+    &__item{
+        position: relative;
+
+        &--show{
+            display: none;
+        }
+    }
+
+    &__link{
+        color: $color-white;
+        transition: $transition-main;
+        padding: 30px 0;
+        font-weight: 600;
+        letter-spacing: 0.6px;
+        cursor: pointer;
+    }
+
+    &__list .menu__link:not(.menu__sub-link):after{
+        content: '';
+        position: absolute;
+        bottom: -50%;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 3px;
+        background-color: $color-gold;
+        transition: $transition-main;
+    }
+
+    &__list .menu__link:not(.current)::after{
+        transform: scale(0);
+        transform-origin: left;
+    }
+
+    &__list .menu__link:hover::after{
+        transform: scale(1);
+    }
+    &__list li:hover .menu__sub-list{
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0);
+        pointer-events: all;
+    }
+    &__sub{
+        &-list{
+            list-style: none;
+            position: absolute;
+            min-width: 200px;
+            padding: 20px;
+            left: 0;
+            top: 200%;
+            transform: translateY(10%);
+            opacity: 0;
+            visibility: hidden;
+            transition: $transition-main;
+            pointer-events: none;
+            background-color: #fff;
+            box-shadow: 3px 3px 10px $color-brown-light;
+        }
+        &-item:first-child{
+            margin-bottom: 30px;
+        }
+        &-link{
+            transition: $transition-main;
+            color: $color-brown;
+            &:hover{
+                color: $color-gold-deep;
+            }
+        }
+    }
+}
+
+
+.social{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    list-style: none;
+
+    &__tel-num-ico{
+        position: relative;
+        top: 3px;
+    }
+
+    &__tel-num svg:hover path{
+        fill: $color-gold;
+        transition: $transition-main;
+    }
+
+    &__tel-num{
+        color: $color-white;
+        transition: $transition-main;
+    }
+
+    &__tel-num:hover{
+        color: $color-gold;
+    }
+}
+
+.lang{
+
+    list-style: none;
+    display: flex;
+    gap: 10px;
+
+    &__link{
+        color: $color-white;
+        transition: $transition-main;
+        font-weight: 600;
+    }
+
+    &__link.current{
+        color: $color-white-disabled;
+        cursor: default;
+    }
+    &__link:hover:not(.current){
+        color: $color-gold;
+    }
+}
+
+@media screen and (max-width: $large-down) {
+
+    ._lock{
+        overflow: hidden;
+    }
+
+
+    .header{
+        background-color: $color-brown;
+        z-index: 99;
+    }
+
+    .menu{
+        &__body{
+            background-color: $color-brown;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-120%);
+            justify-content: space-around;
+            align-items: center;
+            gap: 30%;
+            padding-top: 100px;
+            transition: all .6s ease-in-out;
+            &._active{
+                transform: translateY(0);
+            }
+        }
+
+
+        &__burger{
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 5;
+        }
+        &__burger span,
+        &__burger::after,
+        &__burger::before{
+            left: 0;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            transition: $transition-main;
+            background-color: $color-white;
+        }
+        &__burger::after,
+        &__burger::before{
+            content: '';
+        }
+        &__burger::after{
+            top: 0;
+        }
+        &__burger::before{
+            bottom: 0;
+        }
+        &__burger span{
+            top: 50%;
+            transform: scale(1) translate(0px, -50%);
+        }
+
+        &__burger._active span{
+            display: none;
+        }
+        &__burger._active::after{
+            transform: rotate(45deg);
+            top: 42%;
+        }
+        &__burger._active::before{
+            transform: rotate(-45deg);
+            bottom: 42%;
+        }
+
+        &__sub-list{
+            display: none;
+        }
+        &__list{
+            text-align: center;
+            flex-direction: column;
+            align-self: center;
+            justify-content: center;
+            gap: 30px;
+        }
+        &__list .menu__link:not(.menu__sub-link):after{
+            display: none;
+        }
+        &__item{
+            justify-content: center;
+            &--show{
+                display: block;
+            }
+            &--hidden{
+                display: none;
+            }
+        }
+        &__link::after{
+            content: none;
+        }
+    }
+
+}
+
